@@ -1,0 +1,27 @@
+console.log('🎉 Сайт работает! Вы молодец!');
+
+// Анимация для арбуза
+const watermelon = document.getElementById('watermelon');
+
+watermelon.addEventListener('mouseenter', function() {
+    this.innerHTML = '💥 БАБАХ!<br>Лопнул!';
+    this.style.background = '#ff4757';
+});
+
+watermelon.addEventListener('mouseleave', function() {
+    this.innerHTML = '🍉 Наведи на меня!';
+    this.style.background = '#2ed573';
+});
+
+// Секретная функция для кнопки
+function showSecret() {
+    const secret = document.getElementById('secret');
+    secret.innerHTML = '🎊 УРА! Вы создали свой первый сайт!<br>Теперь вы - веб-разработчик! 🚀';
+    
+    // Добавляем конфетти эффект
+    document.body.style.background = 'linear-gradient(135deg, #ff6b6b, #ffd700)';
+    
+    setTimeout(() => {
+        document.body.style.background = 'linear-gradient(135deg, #667eea, #764ba2)';
+    }, 2000);
+}
