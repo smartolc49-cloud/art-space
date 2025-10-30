@@ -265,13 +265,12 @@ nav {
     max-width: 300px;
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease; /* ← ДОБАВЬ ЭТУ СТРОЧКУ */
+    transition: all 0.3s ease;
 }
 
 .profile-photo:hover {
-    transform: translateY(-5px) scale(1.05); /* ← СМЕЩЕНИЕ И УВЕЛИЧЕНИЕ */
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2); /* ← УСИЛЕНИЕ ТЕНИ */
-}
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
 }
 
 .skills {
@@ -325,9 +324,6 @@ nav {
     height: 200px;
     overflow: hidden;
     background: #f0f0f0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .work-image img {
@@ -636,4 +632,3 @@ body.dark-theme {
         transform: translateY(-1px);
     }
 }
-
