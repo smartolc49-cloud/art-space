@@ -1,17 +1,50 @@
-/* Добавьте эти стили в существующий CSS */
+/* 🔧 ИСПРАВЛЕННЫЕ СТИЛИ ДЛЯ ВЕБ-ВЕРСИИ */
 
-/* Скругления для основных секций */
-.about, .works, .contact {
-    border-radius: 20px;
-    margin: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+/* Скругления для основных секций - ТОЛЬКО ДЛЯ МОБИЛЬНЫХ */
+@media (max-width: 768px) {
+    .about, .works, .contact {
+        border-radius: 20px;
+        margin: 20px 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
 }
 
-/* Защита от перекрытия переключателем */
-.contact {
-    position: relative;
-    z-index: 1;
-    padding-bottom: 100px; /* Добавляем место снизу */
+/* Для десктопа - убираем отступы и скругления */
+@media (min-width: 769px) {
+    .about, .works, .contact {
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    
+    /* Для десктопа добавляем плавный фон */
+    .about {
+        background: white;
+    }
+    
+    .works {
+        background: #f8f9fa;
+    }
+    
+    .contact {
+        background: white;
+    }
+    
+    .dark-theme .about,
+    .dark-theme .contact {
+        background: #1a1a2e;
+    }
+    
+    .dark-theme .works {
+        background: #16213e;
+    }
+}
+
+/* Защита от перекрытия переключателем - ТОЛЬКО ДЛЯ МОБИЛЬНЫХ */
+@media (max-width: 768px) {
+    .contact {
+        padding-bottom: 100px;
+    }
 }
 
 /* Улучшенный переключатель для мобильных */
@@ -26,12 +59,8 @@
         height: 45px;
         font-size: 18px;
     }
-    
-    .about, .works, .contact {
-        margin: 10px;
-        border-radius: 15px;
-    }
 }
+
 /* Обновите стили .skill-tag */
 .skill-tag {
     display: inline-block;
@@ -73,6 +102,7 @@
     color: #1a1a2e;
     font-weight: 500;
 }
+
 /* Обновите стили контактов */
 .contact-item {
     display: flex;
@@ -112,7 +142,8 @@
     background: rgba(255, 107, 107, 0.1);
     border-color: #ff6b6b;
 }
-/* Добавьте в существующий media query */
+
+/* Улучшения для мобильной версии */
 @media (max-width: 768px) {
     .hero {
         padding: 120px 0 60px;
@@ -183,17 +214,24 @@
         height: 150px;
     }
 }
-/* Добавьте плавные переходы для всех интерактивных элементов */
-* {
-    transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+
+/* Плавные переходы - ОСТОРОЖНО с этим правилом! */
+/* Вместо глобального * лучше указать конкретные элементы */
+.skill-tag,
+.contact-item,
+.work-card,
+.nav-links a,
+.theme-toggle,
+.watermelon {
+    transition: all 0.3s ease;
 }
 
 /* Улучшение для body transition */
 body {
-    transition: background 0.5s ease, color 0.5s ease, transform 0.3s ease;
+    transition: background 0.5s ease, color 0.5s ease;
 }
 
-/* Плавное появление секций */
+/* Плавное появление секций - ТОЛЬКО ПРИ ПЕРВОЙ ЗАГРУЗКЕ */
 .about, .works, .contact {
     animation: fadeInUp 0.8s ease-out;
 }
@@ -206,5 +244,45 @@ body {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* 🔥 ДОПОЛНИТЕЛЬНЫЕ УЛУЧШЕНИЯ ДЛЯ ВЕБ-ВЕРСИИ */
+
+/* Красивые тени и эффекты для десктопа */
+@media (min-width: 769px) {
+    .work-card {
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .work-card:hover {
+        transform: translateY(-15px) scale(1.02);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    }
+    
+    /* Улучшенные контакты для десктопа */
+    .contact-info {
+        justify-content: space-around;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .contact-item {
+        min-width: 200px;
+        justify-content: center;
+    }
+}
+
+/* Фикс для хедера на десктопе */
+@media (min-width: 769px) {
+    header {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .dark-theme header {
+        background: rgba(26, 26, 46, 0.95);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 }
