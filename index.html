@@ -3,28 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой первый сайт</title>
+    <title>Портфолио | Ваше Имя</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Привет! Я научилась работать в VS Code! 🎉</h1>
-        <p>Мой первый сайт запущен и работает!</p>
-        
-        <div class="watermelon" id="watermelon">
-            🍉 Наведи на меня!
+    <!-- Экран с паролем -->
+    <div id="passwordScreen" class="password-screen">
+        <div class="password-container">
+            <h2>Добро пожаловать в моё портфолио!</h2>
+            <p>Введите пароль для доступа:</p>
+            <input type="password" id="passwordInput" placeholder="Введите пароль">
+            <button onclick="checkPassword()">Войти</button>
+            <p id="passwordError" class="error"></p>
         </div>
+    </div>
 
-        <button onclick="showSecret()">Нажми меня!</button>
-        <p id="secret"></p>
+    <!-- Основной контент -->
+    <div id="mainContent" class="main-content" style="display: none;">
+        <!-- Шапка -->
+        <header>
+            <nav>
+                <div class="nav-brand">
+                    <h2>Моё Портфолио</h2>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#about">Обо мне</a></li>
+                    <li><a href="#works">Мои работы</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Герой секция -->
+        <section class="hero">
+            <div class="container">
+                <h1>Привет! Я <span class="highlight">Ваше Имя</span> 👋</h1>
+                <p>Дизайнер | Разработчик | Специалист по маркетплейсам</p>
+                <div class="hero-badge">
+                    🎉 Научилась работать в VS Code и создала этот сайт!
+                </div>
+            </div>
+        </section>
+
+        <!-- Интерактивный арбуз -->
+        <section class="interactive-section">
+            <div class="container">
+                <h3>Интерактивный элемент</h3>
+                <div class="watermelon-container">
+                    <img src="watermelon-normal.png" alt="Арбуз" class="watermelon" id="watermelon"
+                         onmouseover="explodeWatermelon()" 
+                         onmouseout="resetWatermelon()">
+                    <p class="watermelon-hint">Наведи на арбуз! 🍉</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Обо мне -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2>Обо мне</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Здесь вы можете рассказать о себе, своих навыках и опыте работы с маркетплейсами.</p>
+                        <div class="skills">
+                            <span class="skill-tag">Дизайн</span>
+                            <span class="skill-tag">Маркетплейсы</span>
+                            <span class="skill-tag">Презентации</span>
+                            <span class="skill-tag">Веб-разработка</span>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <!-- Добавьте свое фото -->
+                        <img src="my-photo.jpg" alt="Мое фото" class="profile-photo">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Мои работы -->
+        <section id="works" class="works">
+            <div class="container">
+                <h2>Мои работы</h2>
+                <div class="works-grid">
+                    <!-- Работа 1 - Маркетплейсы -->
+                    <div class="work-card" onclick="showWorkDetails(1)">
+                        <div class="work-image">
+                            <img src="marketplace-work1.jpg" alt="Работа на маркетплейсах">
+                        </div>
+                        <div class="work-info">
+                            <h3>Работы на маркетплейсах</h3>
+                            <p>Мои успешные проекты на различных площадках</p>
+                            <span class="work-category">Маркетплейсы</span>
+                        </div>
+                    </div>
+
+                    <!-- Работа 2 - Презентации -->
+                    <div class="work-card" onclick="showWorkDetails(2)">
+                        <div class="work-image">
+                            <img src="presentation-work1.jpg" alt="Презентации">
+                        </div>
+                        <div class="work-info">
+                            <h3>Презентации</h3>
+                            <p>Креативные и профессиональные презентации</p>
+                            <span class="work-category">Дизайн</span>
+                        </div>
+                    </div>
+
+                    <!-- Работа 3 - Этот сайт -->
+                    <div class="work-card" onclick="showWorkDetails(3)">
+                        <div class="work-image">
+                            <img src="website-screenshot.jpg" alt="Веб-сайт">
+                        </div>
+                        <div class="work-info">
+                            <h3>Веб-разработка</h3>
+                            <p>Этот сайт - моя визитная карточка</p>
+                            <span class="work-category">Разработка</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Контакты -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Контакты</h2>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <span>your.email@example.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📱</span>
+                        <span>+7 (XXX) XXX-XX-XX</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">💼</span>
+                        <span>GitHub: ваш-аккаунт</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Кнопка переключения темы -->
+    <div class="theme-switcher">
+        <button class="theme-toggle" onclick="toggleTheme()" title="Переключить тему">
+            🌙
+        </button>
+    </div>
+
+    <!-- Модальное окно для деталей работы -->
+    <div id="workModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
     </div>
 
     <script src="script.js"></script>
 </body>
-<!-- Кнопка переключения темы -->
-<div class="theme-switcher">
-    <button class="theme-toggle" onclick="toggleTheme()" title="Переключить тему">
-        🌙
-    </button>
-</div>
 </html>
