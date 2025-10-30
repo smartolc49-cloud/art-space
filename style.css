@@ -1,37 +1,78 @@
-/* 🎨 ЕДИНЫЙ СТИЛЬ ДЛЯ ВСЕХ УСТРОЙСТВ */
-
-/* Скругления и отступы для всех секций (и ПК и мобильные) */
-.about, .works, .contact {
+/* Стильные рамки для навигации */
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    padding: 10px 20px;
+    border: 2px solid transparent;
     border-radius: 25px;
-    margin: 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-    padding: 80px 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
+    overflow: hidden;
 }
 
-/* Фоны для секций */
-.about {
-    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-gradient);
+    transition: left 0.6s ease;
+    z-index: -1;
+    border-radius: 25px;
 }
 
-.works {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+.nav-links a:hover {
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
 }
 
-.contact {
-    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-    padding-bottom: 120px; /* Защита от перекрытия переключателем */
+.nav-links a:hover::before {
+    left: 0;
 }
 
-/* Контейнер внутри секций */
-.about .container,
-.works .container,
-.contact .container {
+/* Улучшенные навыки с анимацией */
+.skill-tag {
+    display: inline-block;
+    background: var(--primary-gradient);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    border: 2px solid transparent;
     position: relative;
-    z-index: 2;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
 
-/* Заголовок контактов по центру */
+.skill-tag::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.skill-tag:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.skill-tag:hover::before {
+    left: 100%;
+}
+
+/* СТИЛЬНЫЕ КОНТАКТЫ ДЛЯ ПК И МОБИЛЬНЫХ */
 .contact-header {
     text-align: center;
     margin-bottom: 50px;
@@ -170,14 +211,7 @@
     transform: translateX(10px);
 }
 
-/* Темная тема для нового дизайна */
-.dark-theme .about,
-.dark-theme .works,
-.dark-theme .contact {
-    background: linear-gradient(135deg, rgba(26, 26, 46, 0.9) 0%, rgba(22, 33, 62, 0.9) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
+/* Темная тема */
 .dark-theme .contacts-wrapper {
     background: rgba(26, 26, 46, 0.3);
     border: 2px solid rgba(255, 255, 255, 0.1);
@@ -218,23 +252,15 @@
     background-color: rgba(26, 26, 46, 0.3);
 }
 
-/* Адаптивность - теперь только размеры меняем, а стиль одинаковый */
+/* Адаптивность */
 @media (max-width: 768px) {
-    .about, .works, .contact {
-        margin: 15px;
-        border-radius: 20px;
-        padding: 60px 0;
-    }
-    
     .contacts-wrapper {
         padding: 30px 20px;
         margin: 0 10px;
-        border-radius: 20px;
     }
     
     .contacts-wrapper .contact-item {
         padding: 20px 25px;
-        margin: 15px 0;
         gap: 20px;
     }
     
@@ -252,31 +278,15 @@
         font-size: 2rem;
         padding: 12px 30px;
     }
-    
-    .contacts-wrapper:hover {
-        transform: translateY(-5px);
-    }
-    
-    .contacts-wrapper .contact-item:hover {
-        transform: translateX(10px) scale(1.02);
-    }
 }
 
 @media (max-width: 480px) {
-    .about, .works, .contact {
-        margin: 10px;
-        border-radius: 15px;
-        padding: 50px 0;
-    }
-    
     .contacts-wrapper {
         padding: 25px 15px;
-        border-radius: 15px;
     }
     
     .contacts-wrapper .contact-item {
         padding: 15px 20px;
-        margin: 10px 0;
         gap: 15px;
     }
     
@@ -294,29 +304,4 @@
         font-size: 1.8rem;
         padding: 10px 25px;
     }
-}
-
-/* Анимация появления */
-.contacts-wrapper {
-    animation: fadeInUp 0.8s ease-out 0.3s both;
-}
-
-.contact-header {
-    animation: fadeInUp 0.8s ease-out 0.1s both;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Убедимся, что хедер не перекрывает секции */
-.about:first-of-type {
-    margin-top: 100px;
 }
