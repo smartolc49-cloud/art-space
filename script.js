@@ -77,23 +77,24 @@ function showWorkDetails(workId) {
             title: "Работы на маркетплейсах",
             content: `
                 <h2>Мои проекты на маркетплейсах</h2>
-                <div class="work-gallery">
-                    <img src="marketplace-work1.jpg" alt="Работа 1">
-                    <img src="marketplace-work2.jpg" alt="Работа 2">
-                    <img src="marketplace-work3.jpg" alt="Работа 3">
-                </div>
-                <p>Здесь разместите описание ваших работ, достижения и результаты.</p>
+                <p>Успешные кейсы и результаты работы на различных площадках.</p>
+                <ul>
+                    <li>Оптимизация карточек товаров</li>
+                    <li>Увеличение конверсии</li>
+                    <li>Работа с отзывами и рейтингами</li>
+                </ul>
             `
         },
         2: {
             title: "Презентации",
             content: `
                 <h2>Мои презентации</h2>
-                <div class="work-gallery">
-                    <img src="presentation-work1.jpg" alt="Презентация 1">
-                    <img src="presentation-work2.jpg" alt="Презентация 2">
-                </div>
                 <p>Профессиональные и креативные презентации для различных проектов.</p>
+                <ul>
+                    <li>Корпоративные презентации</li>
+                    <li>Питч-деки для стартапов</li>
+                    <li>Образовательные материалы</li>
+                </ul>
             `
         },
         3: {
