@@ -1,340 +1,459 @@
-/* 🎨 СТИЛЬНЫЕ РАМКИ И АНИМАЦИИ */
-
-/* Анимация прыжка */
-@keyframes jump {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+/* Основные стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-@keyframes gentleBounce {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-5px) scale(1.05); }
-}
-
-/* Стильные рамки для навигации */
-.nav-links a {
-    text-decoration: none;
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
     color: #333;
-    font-weight: 500;
-    padding: 10px 20px;
-    border: 2px solid transparent;
-    border-radius: 25px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position: relative;
-    overflow: hidden;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transition: background 0.5s ease, color 0.5s ease;
 }
 
-.nav-links a::before {
-    content: '';
-    position: absolute;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Экран с паролем */
+.password-screen {
+    position: fixed;
     top: 0;
-    left: -100%;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
-    transition: left 0.6s ease;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
 }
 
-.nav-links a:hover {
+.password-container {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+.password-container input {
+    width: 100%;
+    padding: 15px;
+    margin: 20px 0;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.password-container input:focus {
     border-color: #667eea;
-    background: rgba(102, 126, 234, 0.05);
-    animation: gentleBounce 0.6s ease;
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+    outline: none;
 }
 
-.nav-links a:hover::before {
-    left: 100%;
+.password-container button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.3s ease;
 }
 
-/* Рамка для заголовка портфолио */
+.password-container button:hover {
+    transform: translateY(-2px);
+}
+
+.error {
+    color: #ff6b6b;
+    margin-top: 10px;
+}
+
+/* Шапка */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.5s ease;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
 .nav-brand h2 {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    padding: 10px 20px;
-    border: 2px solid #667eea;
-    border-radius: 15px;
-    transition: all 0.4s ease;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
 }
 
-.nav-brand h2:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
 }
 
-/* Стильные рамки для навыков */
-.skill-tag {
-    display: inline-block;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #667eea;
+}
+
+/* Герой секция */
+.hero {
+    padding: 150px 0 100px;
+    text-align: center;
     color: white;
-    padding: 10px 20px;
-    border-radius: 25px;
-    margin: 8px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position: relative;
-    overflow: hidden;
-    border: 2px solid transparent;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
 
-.skill-tag::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-    transition: left 0.6s ease;
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
 }
 
-.skill-tag:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
-    border-color: #fff;
-    animation: jump 0.6s ease;
-}
-
-.skill-tag:hover::before {
-    left: 100%;
-}
-
-/* Улучшенные контакты с рамками */
-.contact-info {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin-top: 40px;
-}
-
-.contact-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    font-size: 1.1rem;
-    padding: 25px;
-    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 2px solid rgba(102, 126, 234, 0.3);
-    position: relative;
-    overflow: hidden;
-    min-width: 200px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
-
-.contact-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
-    transition: left 0.6s ease;
-}
-
-.contact-item:hover {
-    transform: translateY(-8px) scale(1.05);
-    border-color: #667eea;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.1) 100%);
-    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
-    animation: gentleBounce 0.6s ease;
-}
-
-.contact-item:hover::before {
-    left: 100%;
-}
-
-.contact-icon {
-    font-size: 2rem;
-    transition: all 0.4s ease;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    padding: 10px;
-    border-radius: 50%;
-    border: 2px solid rgba(102, 126, 234, 0.3);
-}
-
-.contact-item:hover .contact-icon {
-    transform: scale(1.3) rotate(10deg);
-    border-color: #667eea;
+.highlight {
     background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.contact-text {
-    text-align: center;
-    font-weight: 500;
+.hero-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    border-radius: 25px;
+    margin-top: 20px;
+    backdrop-filter: blur(10px);
 }
 
-/* Анимация для фотографии */
+/* Интерактивный арбуз */
+.interactive-section {
+    padding: 80px 0;
+    background: rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.watermelon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.watermelon {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+}
+
+.watermelon-hint {
+    font-size: 1.2rem;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+/* Секции */
+.about, .works, .contact {
+    padding: 100px 0;
+}
+
+.about {
+    background: white;
+}
+
+.works {
+    background: #f8f9fa;
+}
+
+.contact {
+    background: white;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
 .profile-photo {
     width: 100%;
     max-width: 300px;
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 3px solid transparent;
-    position: relative;
-    overflow: hidden;
 }
 
-.profile-photo:hover {
-    transform: scale(1.05) rotate(2deg);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-    border-color: #667eea;
+.skills {
+    margin-top: 20px;
 }
 
-.profile-photo::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-    transition: left 0.6s ease;
+.skill-tag {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin: 5px;
+    font-size: 0.9rem;
 }
 
-.profile-photo:hover::after {
-    left: 100%;
+/* Сетка работ */
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
 }
 
-/* Улучшенные карточки работ */
 .work-card {
     background: white;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 2px solid transparent;
-    position: relative;
-}
-
-.work-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border: 2px solid transparent;
-    border-radius: 20px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    padding: 2px;
-    opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: all 0.3s ease;
 }
 
 .work-card:hover {
-    transform: translateY(-12px) scale(1.03);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-}
-
-.work-card:hover::before {
-    opacity: 1;
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .work-image {
     width: 100%;
     height: 200px;
     overflow: hidden;
-    position: relative;
 }
 
 .work-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: all 0.5s ease;
+    transition: transform 0.3s ease;
 }
 
 .work-card:hover .work-image img {
-    transform: scale(1.15);
-}
-
-.work-info {
-    padding: 25px;
-    position: relative;
-}
-
-.work-category {
-    background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    display: inline-block;
-    margin-bottom: 10px;
-    transition: all 0.3s ease;
-}
-
-.work-card:hover .work-category {
     transform: scale(1.1);
 }
 
-/* Темная тема для всех новых элементов */
-.dark-theme .nav-links a {
+.work-info {
+    padding: 20px;
+}
+
+.work-category {
+    background: #ff6b6b;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+}
+
+/* Контакты */
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+}
+
+.contact-icon {
+    font-size: 1.5rem;
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: white;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.close:hover {
+    color: #333;
+}
+
+.work-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.work-gallery img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Кнопка переключения темы */
+.theme-switcher {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.theme-toggle {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    border-color: #667eea;
+}
+
+/* 🌙 Тёмная тема */
+body.dark-theme {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     color: #e0e0e0;
-    border-color: transparent;
 }
 
-.dark-theme .nav-links a:hover {
-    border-color: #ff6b6b;
-    background: rgba(255, 107, 107, 0.1);
-    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+.dark-theme header {
+    background: rgba(26, 26, 46, 0.95);
+    border-bottom: 1px solid #333;
 }
 
-.dark-theme .nav-brand h2 {
-    border-color: #ff6b6b;
-    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+.dark-theme nav a {
+    color: #e0e0e0;
 }
 
-.dark-theme .nav-brand h2:hover {
-    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+.dark-theme nav a:hover {
+    color: #ff6b6b;
 }
 
-.dark-theme .skill-tag {
-    background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
-    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+.dark-theme .about,
+.dark-theme .contact {
+    background: #1a1a2e;
 }
 
-.dark-theme .skill-tag:hover {
-    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.5);
+.dark-theme .works {
+    background: #16213e;
 }
 
-.dark-theme .contact-item {
-    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
-    border-color: rgba(255, 107, 107, 0.3);
+.dark-theme .work-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #333;
+    color: #e0e0e0;
 }
 
-.dark-theme .contact-item:hover {
-    border-color: #ff6b6b;
-    background: linear-gradient(135deg, rgba(255, 107, 107, 0.15) 0%, rgba(254, 202, 87, 0.1) 100%);
-    box-shadow: 0 15px 35px rgba(255, 107, 107, 0.3);
-}
-
-.dark-theme .profile-photo:hover {
+.dark-theme .work-card:hover {
+    background: rgba(255, 107, 107, 0.2);
     border-color: #ff6b6b;
 }
 
-.dark-theme .work-card::before {
-    background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+.dark-theme .password-container {
+    background: #1a1a2e;
+    color: #e0e0e0;
+    border: 1px solid #333;
+}
+
+.dark-theme .password-container input {
+    background: #0f0f1a;
+    border: 1px solid #333;
+    color: #e0e0e0;
+}
+
+.dark-theme .password-container input:focus {
+    border-color: #667eea;
+}
+
+.dark-theme .modal-content {
+    background: #1a1a2e;
+    color: #e0e0e0;
+    border: 1px solid #333;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .contact-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .works-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Адаптивность для мобильных */
@@ -400,3 +519,4 @@
 .contact-item:nth-child(1) { animation-delay: 0.2s; }
 .contact-item:nth-child(2) { animation-delay: 0.3s; }
 .contact-item:nth-child(3) { animation-delay: 0.4s; }
+
