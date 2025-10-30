@@ -110,6 +110,19 @@ function showWorkDetails(workId) {
                 </ul>
             `
         }
+        4: {
+    title: "Стикерпаки",
+    content: `
+        <h2>Мои стикерпаки</h2>
+        <p>Креативные наборы стикеров для Telegram, WhatsApp и других мессенджеров.</p>
+        <ul>
+            <li>Стикеры для бизнеса</li>
+            <li>Развлекательные стикерпаки</li>
+            <li>Тематические коллекции</li>
+            <li>Кастомные стикеры под заказ</li>
+        </ul>
+    `
+    }
     };
     
     const work = works[workId];
@@ -157,3 +170,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
