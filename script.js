@@ -21,7 +21,6 @@ function explodeWatermelon() {
     const watermelon = document.getElementById('watermelon');
     const hint = document.querySelector('.watermelon-hint');
     
-    // Меняем изображение на взорванный арбуз
     watermelon.src = 'https://i.postimg.cc/W1KvYkxk/Gemini-Generated-Image-hlfdsbhlfdsbhlfd-Photoroom.png';
     watermelon.style.transform = 'scale(1.2) rotate(8deg)';
     watermelon.style.filter = 'drop-shadow(0 0 30px rgba(255, 107, 107, 0.8)) brightness(1.1)';
@@ -38,7 +37,6 @@ function resetWatermelon() {
     const watermelon = document.getElementById('watermelon');
     const hint = document.querySelector('.watermelon-hint');
     
-    // Возвращаем обычное изображение
     watermelon.src = 'https://i.postimg.cc/FspFp1rm/Gemini-Generated-Image-fhiv47fhiv47fhiv-Photoroom.png';
     watermelon.style.transform = 'scale(1) rotate(0deg)';
     watermelon.style.filter = 'drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3)) brightness(1)';
@@ -57,7 +55,6 @@ function checkPassword() {
     const passwordScreen = document.getElementById('passwordScreen');
     const mainContent = document.getElementById('mainContent');
     
-    // Простой пароль для демонстрации
     if (password === 'портфолио' || password === 'portfolio') {
         passwordScreen.style.display = 'none';
         mainContent.style.display = 'block';
@@ -170,7 +167,7 @@ window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = 'none';
     }
-}
+};
 
 // Инициализация при загрузке
 document.addEventListener('DOMContentLoaded', function() {
@@ -183,5 +180,23 @@ document.addEventListener('DOMContentLoaded', function() {
         themeToggle.title = 'Включить светлую тему';
     }
     
-    // Скрываем кнопку темы
-
+    // Скрываем кнопку темы до ввода пароля
+    document.querySelector('.theme-switcher').style.display = 'none';
+    
+    // Добавляем обработчики событий для арбуза
+    const watermelon = document.getElementById('watermelon');
+    if (watermelon) {
+        watermelon.addEventListener('mouseover', explodeWatermelon);
+        watermelon.addEventListener('mouseout', resetWatermelon);
+    }
+    
+    // Добавляем обработчик для поля ввода пароля (Enter)
+    const passwordInput = document.getElementById('passwordInput');
+    if (passwordInput) {
+        passwordInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+    }
+});
