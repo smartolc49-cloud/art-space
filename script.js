@@ -183,4 +183,5 @@ document.addEventListener('DOMContentLoaded', function() {
         themeToggle.title = 'Включить светлую тему';
     }
     
-    // Скрываем кнопку те
+    // Скрываем кнопку темы
+
