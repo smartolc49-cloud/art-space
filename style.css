@@ -1,457 +1,116 @@
-/* Основные стили */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* Стильный минималистичный интерактив */
 
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    transition: background 0.5s ease, color 0.5s ease;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Экран с паролем */
-.password-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10000;
-}
-
-.password-container {
-    background: white;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    max-width: 400px;
-    width: 90%;
-}
-
-.password-container input {
-    width: 100%;
-    padding: 15px;
-    margin: 20px 0;
-    border: 2px solid #e0e0e0;
-    border-radius: 10px;
-    font-size: 16px;
-    transition: border-color 0.3s ease;
-}
-
-.password-container input:focus {
-    border-color: #667eea;
-    outline: none;
-}
-
-.password-container button {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: transform 0.3s ease;
+/* Кнопки */
+.password-container button,
+.work-card,
+.skill-tag,
+.contact-item {
+    transition: all 0.3s ease;
 }
 
 .password-container button:hover {
     transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
 }
 
-.error {
-    color: #ff6b6b;
-    margin-top: 10px;
-}
-
-/* Шапка */
-header {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    transition: all 0.5s ease;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-}
-
-.nav-brand h2 {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
-
+/* Навигация */
 .nav-links a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    transition: color 0.3s ease;
+    position: relative;
+    padding: 5px 0;
 }
 
-.nav-links a:hover {
-    color: #667eea;
-}
-
-/* Герой секция */
-.hero {
-    padding: 150px 0 100px;
-    text-align: center;
-    color: white;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.highlight {
-    background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.hero-badge {
-    display: inline-block;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 10px 20px;
-    border-radius: 25px;
-    margin-top: 20px;
-    backdrop-filter: blur(10px);
-}
-
-/* Интерактивный арбуз */
-.interactive-section {
-    padding: 80px 0;
-    background: rgba(255, 255, 255, 0.1);
-    text-align: center;
-}
-
-.watermelon-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-.watermelon {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.5s ease;
-    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
-}
-
-.watermelon-hint {
-    font-size: 1.2rem;
-    color: white;
-    transition: color 0.3s ease;
-}
-
-/* Секции */
-.about, .works, .contact {
-    padding: 100px 0;
-}
-
-.about {
-    background: white;
-}
-
-.works {
-    background: #f8f9fa;
-}
-
-.contact {
-    background: white;
-}
-
-.about-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 50px;
-    align-items: center;
-}
-
-.profile-photo {
-    width: 100%;
-    max-width: 300px;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-}
-
-.skills {
-    margin-top: 20px;
-}
-
-.skill-tag {
-    display: inline-block;
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 5px 15px;
-    border-radius: 20px;
-    margin: 5px;
-    font-size: 0.9rem;
-}
-
-/* Сетка работ */
-.works-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 50px;
-}
-
-.work-card {
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
     transition: all 0.3s ease;
+    transform: translateX(-50%);
 }
 
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Карточки работ */
 .work-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
-.work-image {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-}
-
-.work-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.work-card:hover .work-image img {
-    transform: scale(1.1);
-}
-
-.work-info {
-    padding: 20px;
-}
-
-.work-category {
-    background: #ff6b6b;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 15px;
-    font-size: 0.8rem;
+/* Скиллы */
+.skill-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
 }
 
 /* Контакты */
-.contact-info {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    flex-wrap: wrap;
+.contact-item:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.15);
 }
 
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1.1rem;
+/* Бейдж в герое */
+.hero-badge:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
 }
 
-.contact-icon {
-    font-size: 1.5rem;
-}
-
-/* Модальное окно */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
-}
-
-.modal-content {
-    background: white;
-    margin: 5% auto;
-    padding: 30px;
-    border-radius: 20px;
-    width: 90%;
-    max-width: 800px;
-    max-height: 80vh;
-    overflow-y: auto;
-    position: relative;
-}
-
-.close {
-    position: absolute;
-    right: 20px;
-    top: 15px;
-    font-size: 30px;
-    cursor: pointer;
-    color: #aaa;
-}
-
-.close:hover {
-    color: #333;
-}
-
-.work-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    margin: 20px 0;
-}
-
-.work-gallery img {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Кнопка переключения темы */
-.theme-switcher {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
-}
-
-.theme-toggle {
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-}
-
+/* Переключатель темы */
 .theme-toggle:hover {
     transform: scale(1.1);
     border-color: #667eea;
 }
 
-/* 🌙 Тёмная тема */
-body.dark-theme {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    color: #e0e0e0;
+/* Кнопка закрытия модалки */
+.close:hover {
+    color: #667eea;
+    transform: rotate(90deg);
 }
 
-.dark-theme header {
-    background: rgba(26, 26, 46, 0.95);
-    border-bottom: 1px solid #333;
+/* Арбуз */
+.watermelon:hover {
+    transform: scale(1.05);
 }
 
-.dark-theme nav a {
-    color: #e0e0e0;
-}
-
-.dark-theme nav a:hover {
-    color: #ff6b6b;
-}
-
-.dark-theme .about,
-.dark-theme .contact {
-    background: #1a1a2e;
-}
-
-.dark-theme .works {
-    background: #16213e;
-}
-
-.dark-theme .work-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid #333;
-    color: #e0e0e0;
+/* Для тёмной темы */
+.dark-theme .nav-links a::after {
+    background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
 }
 
 .dark-theme .work-card:hover {
-    background: rgba(255, 107, 107, 0.2);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .skill-tag:hover {
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.2);
+}
+
+.dark-theme .contact-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .theme-toggle:hover {
     border-color: #ff6b6b;
 }
 
-.dark-theme .password-container {
-    background: #1a1a2e;
-    color: #e0e0e0;
-    border: 1px solid #333;
+.dark-theme .close:hover {
+    color: #ff6b6b;
 }
 
-.dark-theme .password-container input {
-    background: #0f0f1a;
-    border: 1px solid #333;
-    color: #e0e0e0;
-}
-
-.dark-theme .password-container input:focus {
-    border-color: #667eea;
-}
-
-.dark-theme .modal-content {
-    background: #1a1a2e;
-    color: #e0e0e0;
-    border: 1px solid #333;
-}
-
-/* Адаптивность */
+/* Мобильная адаптация */
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
+    .work-card:hover,
+    .contact-item:hover,
+    .hero-badge:hover {
+        transform: none;
     }
     
-    .hero h1 {
-        font-size: 2rem;
-    }
-    
-    .about-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    
-    .contact-info {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-    
-    .works-grid {
-        grid-template-columns: 1fr;
+    .skill-tag:hover {
+        transform: translateY(-1px);
     }
 }
