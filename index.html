@@ -79,10 +79,19 @@
                             <span class="skill-tag">UX/UI</span>
                         </div>
                     </div>
-                    <div class="about-image">
-                        <img src="https://i.postimg.cc/9MqgXxXd/Gemini-Generated-Image-vuyki3vuyki3vuyk-Photoroom.png" 
-                             alt="Мое фото" 
-                             class="profile-photo">
+.profile-photo {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease; /* ← ДОБАВЬ ЭТУ СТРОЧКУ */
+}
+
+.profile-photo:hover {
+    transform: scale(1.05) rotate(2deg); /* ← УВЕЛИЧЕНИЕ И ЛЕГКИЙ ПОВОРОТ */
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2); /* ← УСИЛЕНИЕ ТЕНИ */
+    filter: brightness(1.1); /* ← ЛЕГКОЕ ОСВЕТЛЕНИЕ */
+}
                     </div>
                 </div>
             </div>
@@ -187,3 +196,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
