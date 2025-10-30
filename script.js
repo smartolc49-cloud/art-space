@@ -135,6 +135,22 @@ function showWorkDetails(workId) {
                 </ul>
             `
         }
+        5: {
+            title: "Анализ рынка конкурентов",
+            content: `
+                <h2>Анализ рынка конкурентов</h2>
+                <p>Работа с нейросетями, проверка данных, поиск инфрмации для вебения бизнеса.</p>
+                <div class="work-gallery">
+                    <https://i.postimg.cc/jq7Nt0hB/Snimok-ekrana-2025-10-30-164710.png" alt="Анализ">
+                </div>
+                <ul>
+                    <li>Сбор данных в интернете</li>
+                    <li>Вывод гравных</li>
+                    <li>Структурирование</li>
+                    <li>Рекомендация</li>
+                </ul>
+            `
+        }
     };
     
     const work = works[workId];
@@ -182,3 +198,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
