@@ -78,6 +78,9 @@ function showWorkDetails(workId) {
             content: `
                 <h2>Мои проекты на маркетплейсах</h2>
                 <p>Успешные кейсы и результаты работы на различных площадках.</p>
+                <div class="work-gallery">
+                    <img src="https://i.postimg.cc/7ZQ6dTwV/XDK-MEDNYJ-KABEL-1.png" alt="Маркетплейсы">
+                </div>
                 <ul>
                     <li>Оптимизация карточек товаров</li>
                     <li>Увеличение конверсии</li>
@@ -90,6 +93,9 @@ function showWorkDetails(workId) {
             content: `
                 <h2>Мои презентации</h2>
                 <p>Профессиональные и креативные презентации для различных проектов.</p>
+                <div class="work-gallery">
+                    <img src="https://i.postimg.cc/V6KN8rc6/Snimok-ekrana-2025-10-30-150824.png" alt="Презентации">
+                </div>
                 <ul>
                     <li>Корпоративные презентации</li>
                     <li>Питч-деки для стартапов</li>
@@ -102,6 +108,9 @@ function showWorkDetails(workId) {
             content: `
                 <h2>Этот сайт - моя визитная карточка</h2>
                 <p>Сайт разработан с использованием HTML, CSS и JavaScript. Особенности:</p>
+                <div class="work-gallery">
+                    <img src="https://i.postimg.cc/VNHBhsks/Snimok-ekrana-2025-10-30-160523.png" alt="Веб-разработка">
+                </div>
                 <ul>
                     <li>Адаптивный дизайн</li>
                     <li>Тёмная/светлая тема</li>
@@ -109,20 +118,23 @@ function showWorkDetails(workId) {
                     <li>Портфолио работ</li>
                 </ul>
             `
-        }
+        },
         4: {
-    title: "Стикерпаки",
-    content: `
-        <h2>Мои стикерпаки</h2>
-        <p>Креативные наборы стикеров для Telegram, WhatsApp и других мессенджеров.</p>
-        <ul>
-            <li>Стикеры для бизнеса</li>
-            <li>Развлекательные стикерпаки</li>
-            <li>Тематические коллекции</li>
-            <li>Кастомные стикеры под заказ</li>
-        </ul>
-    `
-    }
+            title: "Стикерпаки",
+            content: `
+                <h2>Мои стикерпаки</h2>
+                <p>Креативные наборы стикеров для Telegram, WhatsApp и других мессенджеров.</p>
+                <div class="work-gallery">
+                    <img src="https://i.postimg.cc/vHN3m3vr/Snimok-ekrana-2025-10-30-151246.png" alt="Стикерпаки">
+                </div>
+                <ul>
+                    <li>Стикеры для бизнеса</li>
+                    <li>Развлекательные стикерпаки</li>
+                    <li>Тематические коллекции</li>
+                    <li>Кастомные стикеры под заказ</li>
+                </ul>
+            `
+        }
     };
     
     const work = works[workId];
@@ -170,4 +182,3 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-
